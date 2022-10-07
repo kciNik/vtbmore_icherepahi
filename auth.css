@@ -54,10 +54,6 @@ button {
     width: 20%;
 }
 
-button:hover {
-    opacity: 0.8;
-}
-
 .container {
     padding: 0 40%;
 }
