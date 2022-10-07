@@ -1,0 +1,99 @@
+@font-face {
+	font-family: 'OpenSans'; 
+	src: url(/fonts/OpenSans-VariableFont_wdth\,wght.ttf); 
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    position: relative;
+    display: block;
+    background: url(images/squares.png) no-repeat bottom right;
+    background-color: #1A1A1A;
+    height: 100vh;
+    margin: 0px;
+    width: 100vw;
+    justify-content: flex-start;
+}
+
+
+main {
+    display: block;
+    height: 100%;
+    margin-left: 1%;
+}
+
+.main {
+    display: block;
+    height: 100%;
+}
+
+.logo {
+    display: inline-block;
+    width: 100%;
+    margin-top: 1%;
+}
+
+.lk_count{
+    display: block;
+    width: 50%;
+    margin-left: 80%;
+}
+
+.count_coin{
+
+display: inline-block;
+width: 63px;
+height: 32px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 600;
+font-size: 32px;
+line-height: 42px;
+align-items: center;
+text-align: center;
+
+color: #FFFFFF;
+}
+
+
+.coin_image {
+
+display: inline-block;
+width: 95px;
+height: 48px;
+}
+
+
+
+.count_nft {
+display: inline-block;
+
+width: 23px;
+height: 32px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 600;
+font-size: 32px;
+line-height: 42px;
+align-items: center;
+text-align: center;
+
+color: #FFFFFF;
+
+}
+
+.nft_image {
+
+display: inline-block;
+width: 81px;
+height: 48px;
+}
+
+
+
+
