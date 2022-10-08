@@ -11,6 +11,7 @@ body {
     position: relative;
     display: block;
     background: url(images/squares.png) no-repeat bottom right;
+    background-size: 20%;
     background-color: #1A1A1A;
     height: 100vh;
     margin: 0px;
@@ -21,78 +22,105 @@ body {
 
 main {
     display: block;
-    height: 100%;
-    margin-left: 1%;
+    height: 100vh;
+    margin-left: 1vw;
 }
 
 .main {
     display: block;
-    height: 100%;
+    height: 100vh;
 }
 
 .logo {
     display: inline-block;
-    width: 100%;
-    margin-top: 1%;
+    width: 100vw;
+    margin-top: 32px;
 }
 
-.lk_count{
-    display: block;
-    width: 50%;
-    margin-left: 80%;
+.lk{
+    display: inline-block;
+    margin-left: 65vw; 
+
 }
 
-.count_coin{
+.lk_user{
+    display: inline-block;
+    
+}
 
-display: inline-block;
-width: 63px;
-height: 32px;
+.lk_name {
 
 font-family: 'Inter';
 font-style: normal;
+vertical-align: top;
 font-weight: 600;
-font-size: 32px;
-line-height: 42px;
-align-items: center;
-text-align: center;
+font-size: 24px;
+line-height: 29px;
+margin-left: 0vw;
 
 color: #FFFFFF;
+
+
 }
 
+.lk_avatar {
+    margin-left: 1vw;
+    margin-top: 0vh;
+    
+    }
 
-.coin_image {
-
-display: inline-block;
-width: 95px;
-height: 48px;
+.lk_count{
+    display: inline-block;
+    margin-top: 0vh;
 }
-
-
 
 .count_nft {
 display: inline-block;
 
-width: 23px;
-height: 32px;
-
 font-family: 'Inter';
 font-style: normal;
 font-weight: 600;
 font-size: 32px;
 line-height: 42px;
-align-items: center;
-text-align: center;
+vertical-align: top;
+margin-left: 0vw;
 
 color: #FFFFFF;
 
 }
 
-.nft_image {
+.nft_img {
+display: inline-block;
+margin-left: 1vw;
+}
+
+.count_coin{
+display: inline-block;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 600;
+font-size: 32px;
+
+line-height: 42px;
+vertical-align: top;
+margin-left: 1vw;
+
+color: #FFFFFF;
+}
+
+
+.coin_img {
 
 display: inline-block;
-width: 81px;
-height: 48px;
+margin-left: 1vw;
 }
+.tasks_button{
+    display: block;
+    margin-top: 1vh;
+    margin-right: 10vw;
+}
+
 
 
 
