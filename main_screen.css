@@ -1,0 +1,127 @@
+@font-face {
+	font-family: 'OpenSans'; 
+	src: url(/fonts/OpenSans-VariableFont_wdth\,wght.ttf); 
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    position: relative;
+    display: block;
+    background: url(images/squares.png) no-repeat bottom right;
+    background-size: 20%;
+    background-color: #1A1A1A;
+    height: 100vh;
+    margin: 0px;
+    width: 100vw;
+    justify-content: flex-start;
+}
+
+
+main {
+    display: block;
+    height: 100vh;
+    margin-left: 1vw;
+}
+
+.main {
+    display: block;
+    height: 100vh;
+}
+
+.logo {
+    display: inline-block;
+    width: 100vw;
+    margin-top: 32px;
+}
+
+.lk{
+    display: inline-block;
+    margin-left: 65vw; 
+
+}
+
+.lk_user{
+    display: inline-block;
+    
+}
+
+.lk_name {
+
+font-family: 'Inter';
+font-style: normal;
+vertical-align: top;
+font-weight: 600;
+font-size: 24px;
+line-height: 29px;
+margin-left: 0vw;
+
+color: #FFFFFF;
+
+
+}
+
+.lk_avatar {
+    margin-left: 1vw;
+    margin-top: 0vh;
+    
+    }
+
+.lk_count{
+    display: inline-block;
+    margin-top: 0vh;
+}
+
+.count_nft {
+display: inline-block;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 600;
+font-size: 32px;
+line-height: 42px;
+vertical-align: top;
+margin-left: 0vw;
+
+color: #FFFFFF;
+
+}
+
+.nft_img {
+display: inline-block;
+margin-left: 1vw;
+}
+
+.count_coin{
+display: inline-block;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 600;
+font-size: 32px;
+
+line-height: 42px;
+vertical-align: top;
+margin-left: 1vw;
+
+color: #FFFFFF;
+}
+
+
+.coin_img {
+
+display: inline-block;
+margin-left: 1vw;
+}
+.tasks_button{
+    display: block;
+    margin-top: 1vh;
+    margin-right: 10vw;
+}
+
+
+
+
+
