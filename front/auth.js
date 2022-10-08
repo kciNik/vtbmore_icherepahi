@@ -16,17 +16,20 @@ submit_button.onclick = function() {
     auth_div.insertBefore(div, login);
   }
   else {
-    user['login'] = login;
-    user['password'] = password;
-    fetch('/login', {
+    user['login'] = login.value;
+    user['password'] = password.value;
+    fetch('http://localhost:5000/api/authorization', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json;charset=utf-8'
       },
       body: JSON.stringify(user),
-    }).then((response) => response.json())
-    .then((data) => {
-      console.log(data)
+    }).then((response) => {
+        if (response.ok)
+            window.location.href = 'https://habr.com/ru/post/582998/';
+    })
+    .then((status) => {
+        console.log(status);
     })
   }
 }
