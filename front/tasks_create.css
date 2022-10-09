@@ -1,6 +1,6 @@
 @font-face {
-	font-family: 'OpenSans'; 
-	src: url(/fonts/OpenSans-VariableFont_wdth\,wght.ttf); 
+ font-family: 'OpenSans'; 
+ src: url(/fonts/OpenSans-VariableFont_wdth\,wght.ttf); 
 }
 
 * {
@@ -10,14 +10,14 @@
 body {
     position: relative;
     display: block;
-    background: url(images/squares.png) no-repeat bottom right;
+    background: url(images/squares2.png) no-repeat bottom right;
     background-size: 20%;
-    background-color: #1A1A1A;
+    background-color: #FFFFFF;
     height: 100vh;
     margin: 0px;
     width: 100vw;
     justify-content: flex-start;
-}
+}z
 
 .main {
     display: block;
@@ -44,7 +44,7 @@ main {
     font-size: 33px;
     margin-left: 5px;
     line-height: 58px;
-    color: #FFF;
+    color: #1A1A1A;
     opacity: 0.65;
 }
 
@@ -53,31 +53,49 @@ h1 {
     font-family: 'OpenSans';
     margin-bottom: 7%;
 }
+.text{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 39px;
+
+    color: #ffffff;
+
+}
+
+
+
 
 
 .PublicButton {
     background-color: #1442EC;
     background-image: linear-gradient(60deg, #1442EC 50%, #4B85EF 100%);
-    color: white;
+    color:  #ffffff;
+    font-family: 'Inter';
+    font-style: normal;
     font-size: 100%;
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 39px;
     filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
     padding: 14px 20px;
     margin: 8px auto;
     border: none;
     border-radius: 10px;
     cursor: pointer;
-    width: 100%;
+    width: 31vw;
     height: 50px;
-    margin-top: 10vh;
+    margin-top: 3vh;
 }
 
 
 .container {
     text-align: center;
-    color: white;
+    color: #1A1A1A;
     padding: 0 35%;
     margin-top: 0vh;
-    height: 80vh;
+    height: 100vh;
     width: 100vw;
 }
 
@@ -113,7 +131,6 @@ input[type=header_task] {
     height: 50px;
     font-size: 100%;
     padding: 5px 15px;
-    margin: 15px auto;
     display: block;
     border: 1px solid #ccc;
     border-radius: 10px;
@@ -125,7 +142,6 @@ input[type=description_task] {
     height: 200px;
     font-size: 100%;
     padding: 5px 15px;
-    margin: 15px auto;
     display: block;
     border: 1px solid #ccc;
     border-radius: 10px;
@@ -133,24 +149,28 @@ input[type=description_task] {
 }
 
 .gifs{
-    display: inline-block;
-    width: 80vw;
-    
-    
-
+    display: block;
+    margin-top: 8vh;
 }
+
+
 input[type=count_nft] {
     display: inline-block;
     
     font-family: 'Inter';
     font-style: normal;
-    font-weight: 600;
+    font-weight: 40;
     font-size: 32px;
+    text-align: center;
     line-height: 42px;
     vertical-align: top;
     margin-left: 0vw;
+    width: 5vw;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-sizing: border-box;
     
-    color: #FFFFFF;
+    color: #070707;
     
     }
     
@@ -164,14 +184,19 @@ input[type=count_nft] {
     
     font-family: 'Inter';
     font-style: normal;
-    font-weight: 600;
+    text-align: center;
+    font-weight: 40;
     font-size: 32px;
     
     line-height: 42px;
     vertical-align: top;
     margin-left: 1vw;
+    width: 5vw;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-sizing: border-box;
     
-    color: #FFFFFF;
+    color: #070707;
     }
     
     
@@ -180,6 +205,23 @@ input[type=count_nft] {
     display: inline-block;
     margin-left: 1vw;
     }
+    
+    .tags_button{
+        display: block;
+        margin-top: 3vh;
+        
+    }
 
+button[type=tag_team], button[type=tag_individ]{
+        border: 1px solid #ccc;
+        border-radius: 10px;
+        box-sizing: border-box;
+        background-color: #1442EC;
+    background-image: linear-gradient(60deg, #1442EC 50%, #4B85EF 100%);
+    color: #1A1A1A;
+    font-size: 100%;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+        width: 15vw;
+        height: 4vw;
 
-
+}

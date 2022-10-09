@@ -5,6 +5,8 @@ from app import login, db
 import base64
 from datetime import datetime, timedelta
 import os
+from sqlalchemy import Table, Column, ForeignKey
+import enum
 
 
 @login.user_loader
@@ -21,10 +23,16 @@ boss_task = db.Table('boss_task',
                      db.Column('boss_id', db.Integer, db.ForeignKey('boss.id')),
                      db.Column('task_id', db.Integer, db.ForeignKey('task.id'))
                      )
-
+'''
+team_for_user = db.Table(
+    'team_for_user',
+    db.Column("id", db.ForeignKey("User.id")),
+    db.Column("id", db.ForeignKey("Team.id")),
+)
+'''
 
 class User(UserMixin, db.Model):
-    id = db.Column(db.Integer, primary_key=True)#incr
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     name = db.Column(db.String(64), index=True)
     email = db.Column(db.String(120), index=True, unique=True)
     login = db.Column(db.String(120), index=True, unique=True)
@@ -33,6 +41,7 @@ class User(UserMixin, db.Model):
     coins = db.Column(db.Integer, default=0)
     levels = db.relationship('Level', backref='executor', lazy='dynamic')
     tasks = db.relationship('Task', secondary=user_task, backref='users')
+    #teams = db.relationship("Team", secondary=team_for_user)
     role = db.Column(db.String(120), index=True)  # enum Leader, User, Admin
     token = db.Column(db.String(32), index=True, unique=True)
     token_expiration = db.Column(db.DateTime)
@@ -88,7 +97,7 @@ class User(UserMixin, db.Model):
 
 
 class Level(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     level = db.Column(db.Integer)  # must be
     total_tasks = db.Column(db.Integer)
     completed_tasks = db.Column(db.Integer, default=0)
@@ -100,9 +109,46 @@ class Level(db.Model):
     def __repr__(self):
         return '<Level {}, executor {}>'.format(self.level, self.executor)
 
+    def to_dict(self):
+        data = {
+            'id': self.id,
+            'level': self.level,
+            'total_tasks': self.total_tasks,
+            'completed_tasks': self.completed_tasks,
+            'dungeon_id': self.dungeon.id,
+            'is_done': self.is_done,
+            'reward_id': self.reward.id
+        }
+        return data
+
+'''
+leader_for_team = Table(
+    "leader_for_team",
+    Column("id", ForeignKey("User.id")),
+    Column("id", ForeignKey("Team.id")),
+)
+
+
+class Team(db.Model):
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    name = db.Column(db.String)
+    leaders = db.relationship("User", secondary=team_for_user)
+
+    def __repr__(self):
+        return '<Team {}, executor {}>'.format(self.name, self.executor)
+
+    def to_dict(self):
+        data = {
+            'id': self.id,
+            'name': self.level,
+            'leaders': [leader.to_dict for leader in self.leaders]
+        }
+        return data
+'''
+
 
 class Dungeon(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     name = db.Column(db.String(64), index=True, unique=True)
     description = db.Column(db.String(500))
     level_id = db.Column(db.Integer, db.ForeignKey('level.id'))
@@ -111,9 +157,18 @@ class Dungeon(db.Model):
     def __repr__(self):
         return '<Dungeon {}, level {}>'.format(self.name, self.level)
 
+    def to_dict(self):
+        data = {
+            'id': self.id,
+            'name': self.name,
+            'description': self.description,
+            'bosses': [boss.to_dict() for boss in self.bosses]
+        }
+        return data
+
 
 class Boss(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     name = db.Column(db.String(64), index=True, unique=True)
     description = db.Column(db.String(500))
     tasks = db.relationship('Task', secondary=boss_task, backref='bosses')
@@ -124,9 +179,19 @@ class Boss(db.Model):
     def __repr__(self):
         return '<Boss {}, dungeon {}>'.format(self.name, self.dungeon)
 
+    def to_dict(self):
+        data = {
+            'id': self.id,
+            'name': self.name,
+            'description': self.description,
+            'tasks': [task.to_dict() for task in self.tasks],
+            'reward_id': self.reward.id
+        }
+        return data
+
 
 class Reward(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     value_coins = db.Column(db.Integer, default=0)
     value_nft = db.Column(db.Integer, default=0)
     #  image
@@ -138,9 +203,27 @@ class Reward(db.Model):
     def __repr__(self):
         return '<Reward {}, level {}, boss {}>'.format(self.id, self.level, self.boss)
 
+    def to_dict(self):
+        data = {
+            'id': self.id,
+            'value_coins': self.value_coins,
+            'value_nft': self.value_nft,
+            'is_reward_collected': self.is_reward_collected
+        }
+        return data
+
+
+class TargetTaskEnum(enum.Enum):
+    """
+    Enum for task target
+    """
+    Any = "Any"
+    TeamsOnly = "TeamsOnly"
+    Individual = "Individual"
+
 
 class Task(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     name = db.Column(db.String(64), index=True, unique=True)
     description = db.Column(db.String(500))
     is_completed = db.Column(db.Boolean, default=False)
@@ -148,12 +231,24 @@ class Task(db.Model):
     #  task_type - enum
     is_boss = db.Column(db.Boolean, default=False)
     is_approved = db.Column(db.Boolean, default=False)
-    #  teams
+    target = db.Column(db.Enum(TargetTaskEnum), default=TargetTaskEnum.Any)
     date = db.Column(db.DateTime, index=True, default=datetime.utcnow)
+    author_id = db.Column(db.Integer)
 
     def __repr__(self):
         return '<Task {}, reward {}>'.format(self.name, self.reward)
 
-
-
-
+    def to_dict(self):
+        data = {
+            'id': self.id,
+            'name': self.name,
+            'description': self.description,
+            'is_completed': self.is_completed,
+            'is_boss': self.is_boss,
+            'is_approved': self.is_approved,
+            'date': self.date,
+            'reward_id': self.reward.id,
+            'author_id': self.author_id,
+            'target': self.target.value
+        }
+        return data

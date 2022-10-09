@@ -131,6 +131,48 @@ ul li {
     user-select: none;
 }
 
+.count_nft {
+display: inline-block;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 600;
+font-size: 32px;
+line-height: 42px;
+vertical-align: top;
+margin-left: 0vw;
+
+color: #FFFFFF;
+
+}
+
+.nft_img {
+display: inline-block;
+margin-left: 1vw;
+}
+
+.count_coin{
+display: inline-block;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 600;
+font-size: 32px;
+
+line-height: 42px;
+vertical-align: top;
+margin-left: 1vw;
+
+color: #FFFFFF;
+}
+
+
+.coin_img {
+
+display: inline-block;
+margin-left: 1vw;
+}
+
 
 
 
