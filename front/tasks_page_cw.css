@@ -1,0 +1,136 @@
+@font-face {
+	font-family: 'OpenSans'; 
+	src: url(/fonts/OpenSans-VariableFont_wdth\,wght.ttf); 
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    position: relative;
+    display: block;
+    background: url(images/squares.png) no-repeat bottom right;
+    background-size: 20%;
+    background-color: #1A1A1A;
+    height: 100vh;
+    margin: 0px;
+    width: 100vw;
+    justify-content: flex-start;
+}
+
+.main {
+    display: block;
+    height: 100%;
+}
+
+main {
+    display: block;
+    height: 100%;
+    margin-left: 32px;
+}
+
+.logo {
+    display: inline-block;
+    width: 100%;
+    margin-top: 32px;
+}
+
+.game {
+    font-family: 'Helvetica';
+    font-style: normal;
+    font-stretch: semi-condensed;
+    font-weight: 550;
+    font-size: 33px;
+    margin-left: 5px;
+    line-height: 58px;
+    color: #FFF;
+    opacity: 0.65;
+}
+
+h1 {
+    font-size: 4vw;
+    font-family: 'OpenSans';
+    margin-bottom: 7%;
+}
+
+
+.button {
+    background-color: #1442EC;
+    background-image: linear-gradient(60deg, #1442EC 50%, #4B85EF 100%);
+    color: white;
+    font-size: 100%;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    padding: 14px 20px;
+    margin: 8px auto;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    width: 100%;
+    height: 50px;
+    margin-top: 35vh;
+}
+
+.CheckButton {
+    background-color: #1442EC;
+    background-image: linear-gradient(60deg, #1442EC 50%, #4B85EF 100%);
+    color: white;
+    font-size: 100%;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    padding: 14px 20px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+.MyTasksButton {
+    background-color: #1442EC;
+    background-image: linear-gradient(60deg, #1442EC 50%, #4B85EF 100%);
+    color: white;
+    font-size: 100%;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    padding: 14px 20px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+
+.container {
+    text-align: center;
+    color: white;
+    padding: 0 35%;
+    margin-top: 0vh;
+    height: 80vh;
+}
+
+/* Include the padding and border in an element's total width and height */
+* {
+    box-sizing: border-box;
+}
+
+/* Remove margins and padding from the list */
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+/* Style the list items */
+ul li {
+    position: relative;
+    padding: 12px 8px 12px 40px;
+    background: #1442EC;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 18px;
+    margin-top: 2vh;
+
+    /* make the list items unselectable */
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+
+
+

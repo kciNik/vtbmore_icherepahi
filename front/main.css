@@ -9,6 +9,8 @@ body {
 }
 
 .main {
+    display: grid;
+    grid-template-rows: 120px auto;
     height: 100%;
     width: 100%;
 }
@@ -69,12 +71,65 @@ body {
 }
 
 .page {
+    position: relative;
     display: block;
-    background-color: #1A1A1A;   
+    background-color: #1A1A1A;
 }
 
 .all-tasks {
-    border: none;
-    padding: 0;
-    color: #1A1A1A;
+    position: absolute;
+    right: 0;
+    margin-right: 32px;
+}
+
+.tasks {
+    display: block;
+    margin-top: 64px;
+    margin-left: 61px;
+}
+
+.tasks-bar {
+    display: inline-block;
+    width: 357px;
+}
+
+.tasks-complited {
+    display: inline-block;
+    vertical-align: top;
+    width: 357px;
+    padding-left: 100px;
+}
+
+.task-level {
+    display: block;
+    margin:auto;
+}
+
+.task-aria {
+    background-color: #272727;
+    border-radius: 25px;
+    width: 425px;
+    height: 80px;
+    margin-top: 15px;
+    margin-bottom: 35px;
+}
+
+.tasks-complited-aria {
+    display: block;
+    background-color: #272727;
+    border-radius: 25px;
+    width: 425px;
+    height: 228px;
+    margin-top: 15px;
+    margin-bottom: 35px;
+}
+
+.task-comp {
+    background-color: #fff;
+    color: #000;
+    width: 375px;
+    height: 38px;
+    margin: 20px auto;
+    border-radius: 25px;
+    text-align: center;
 }

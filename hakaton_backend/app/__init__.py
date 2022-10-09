@@ -14,4 +14,4 @@ login = LoginManager(app)
 cors = CORS(app)
 app.config['CORS_HEADERS'] = 'Content-Type'
 
-from app import routes, models
+from app import routes, models, tokens
