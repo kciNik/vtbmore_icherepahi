@@ -9,11 +9,13 @@ submit_button.onclick = function() {
   var login = document.querySelector('input[type="login"]');
   var password = document.querySelector('input[type="password"]');
   if (login.value === '' || password.value === '') {
-    let div = document.createElement('div');
-    div.className = 'empty_input';
-    document.querySelector('h1').style.marginBottom = '2%';
-    div.innerHTML = 'Введите логин или пароль';
-    auth_div.insertBefore(div, login);
+    if (!document.querySelector('.empty_input')) {
+      let div = document.createElement('div');
+      div.className = 'empty_input';
+      document.querySelector('h1').style.marginBottom = '2%';
+      div.innerHTML = 'Введен неверный логин или пароль';
+      auth_div.insertBefore(div, login);
+    }
   }
   else {
     user['login'] = login.value;
@@ -25,11 +27,23 @@ submit_button.onclick = function() {
       },
       body: JSON.stringify(user),
     }).then((response) => {
-        if (response.ok)
-            window.location.href = 'https://habr.com/ru/post/582998/';
-    })
-    .then((status) => {
-        console.log(status);
+        if (response.status == 201) {
+          window.location.href = 'main.html';
+          response.json().then(data => {
+            for (key in data) {
+              window.localStorage.setItem(key, data[key]);
+            };
+          })
+        }
+        else {
+          if (!document.querySelector('.empty_input')) {
+            let div = document.createElement('div');
+            div.className = 'empty_input';
+            document.querySelector('h1').style.marginBottom = '2%';
+            div.innerHTML = 'Введен неверный логин или пароль';
+            auth_div.insertBefore(div, login);
+          }
+        }
     })
   }
 }

@@ -1,0 +1,80 @@
+body {
+    background: url(images/squares.png) no-repeat bottom right;
+    background-size: 20%;
+    background-color: #1A1A1A;
+    color: #fff;
+    margin: 0;
+    height: 100vh;
+    width: 100vw;
+}
+
+.main {
+    height: 100%;
+    width: 100%;
+}
+
+.head {
+    position: relative;
+}
+
+.logo {
+    display: inline-block;
+    margin-top: 32px;
+    margin-left: 32px;
+}
+
+.lk {
+    display: inline-block;
+    position: absolute;
+    right: 0;
+    margin-right: 32px;
+    margin-top: 24px;
+}
+
+.lk-user {
+    position: relative;
+    font-size: 24px;
+    display: inline-block;
+    
+}
+
+.lk-user-count {
+    display: inline-block;
+}
+
+.lk-name {
+    display: block;
+    /* vertical-align: top; */
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
+.coin {
+    display: flex;
+    margin-bottom: 10px;
+}
+
+.count {
+    display: inline-block;
+    margin-bottom: 5px;
+}
+
+.coin-image {
+    width: 44px;
+    height: 25px;
+}
+
+.lk-avatar {
+    display: inline-block;
+}
+
+.page {
+    display: block;
+    background-color: #1A1A1A;   
+}
+
+.all-tasks {
+    border: none;
+    padding: 0;
+    color: #1A1A1A;
+}

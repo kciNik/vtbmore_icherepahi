@@ -1,5 +1,5 @@
 @font-face {
-	font-family: 'OpenSans'; 
+	font-family: OpenSans; 
 	src: url(/fonts/OpenSans-VariableFont_wdth\,wght.ttf); 
 }
 
@@ -49,7 +49,7 @@ main {
 
 h1 {
     font-size: 4vw;
-    font-family: 'OpenSans';
+    font-family: OpenSans;
     margin-bottom: 7%;
 }
 
